@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS user_service;
+CREATE DATABASE IF NOT EXISTS account_service;
+CREATE DATABASE IF NOT EXISTS transaction_service;
+CREATE DATABASE IF NOT EXISTS fund_transfer_service;
+CREATE DATABASE IF NOT EXISTS sequence_service;
+``

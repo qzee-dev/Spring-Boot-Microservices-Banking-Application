@@ -9,8 +9,17 @@ spring:
     success: 200
     not_found: 404
 
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:user_service}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:user_service}?useSSL=false&serverTimezone=UTC
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:root}
   jpa:
@@ -25,7 +34,7 @@ spring:
 app:
   config:
     keycloak:
-      server-url: http://localhost:8571
+      server-url: http://keycloack:8080
       realm: banking-service
       client-id: banking-service-api-client
       client-secret: 932OFITe8vtH4z0G9gem4Afd69JhbwrI

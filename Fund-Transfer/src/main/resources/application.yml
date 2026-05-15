@@ -1,17 +1,25 @@
 server:
-  port: 8085
+  port: 8086
 
 spring:
   application:
     name: fund-transfer-service
     bad_request: 400
     ok: 200
+ # change accordingly
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+    
   datasource:
-    url: jdbc:mysql://localhost:3306/fund_transfer_service
-    username: root
-    password: root
-
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:fund-transfer-service}?useSSL=false&serverTimezone=UTC
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
   jpa:
     hibernate:
       ddl-auto: update
